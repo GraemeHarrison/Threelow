@@ -7,11 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Dice.h"
 
 int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
-    }
+    
+    Dice *firstDie = [[Dice alloc] init];
+    Dice *secondDie = [[Dice alloc] init];
+    Dice *thirdDie = [[Dice alloc] init];
+    Dice *fourthDie = [[Dice alloc] init];
+    Dice *fifthDie = [[Dice alloc] init];
+    
+    firstDie.dieNumber = [firstDie randomize];
+    secondDie.dieNumber = [secondDie randomize];
+    thirdDie.dieNumber = [thirdDie randomize];
+    fourthDie.dieNumber = [fourthDie randomize];
+    fifthDie.dieNumber = [fifthDie randomize];
+    
+    NSLog(@"First die is:%@\n Second die is:%@\n Third die is:%@\n Fourth die is:%@\n Fifth die is:%@\n",firstDie.dieNumber,secondDie.dieNumber,thirdDie.dieNumber,fourthDie.dieNumber,fifthDie.dieNumber );
+    
     return 0;
 }
