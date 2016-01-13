@@ -12,7 +12,10 @@
 int main(int argc, const char * argv[]) {
     
     NSMutableArray *numbersRolled = [[NSMutableArray alloc] init];
+    NSMutableDictionary *numbersHeld = [[NSMutableDictionary alloc] init];
 
+    
+    
     while (YES) {
         
         NSLog(@"Type 'roll' to roll the die");
