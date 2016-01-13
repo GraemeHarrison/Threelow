@@ -11,6 +11,8 @@
 
 int main(int argc, const char * argv[]) {
     
+    NSMutableArray *numbersRolled = [[NSMutableArray alloc] init];
+
     while (YES) {
         
         NSLog(@"Type 'roll' to roll the die");
@@ -32,7 +34,14 @@ int main(int argc, const char * argv[]) {
             fourthDie.dieNumber = [fourthDie randomize];
             fifthDie.dieNumber = [fifthDie randomize];
             
+            [numbersRolled addObject:firstDie.dieNumber];
+            [numbersRolled addObject:secondDie.dieNumber];
+            [numbersRolled addObject:thirdDie.dieNumber];
+            [numbersRolled addObject:fourthDie.dieNumber];
+            [numbersRolled addObject:fifthDie.dieNumber];
+            
             NSLog(@"First die is:%@\n Second die is:%@\n Third die is:%@\n Fourth die is:%@\n Fifth die is:%@\n",firstDie.dieNumber,secondDie.dieNumber,thirdDie.dieNumber,fourthDie.dieNumber,fifthDie.dieNumber );
+            NSLog(@"Your numbers are %@", numbersRolled);
         } else {
             return 0;
             
