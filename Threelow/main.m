@@ -11,19 +11,33 @@
 
 int main(int argc, const char * argv[]) {
     
-    Dice *firstDie = [[Dice alloc] init];
-    Dice *secondDie = [[Dice alloc] init];
-    Dice *thirdDie = [[Dice alloc] init];
-    Dice *fourthDie = [[Dice alloc] init];
-    Dice *fifthDie = [[Dice alloc] init];
-    
-    firstDie.dieNumber = [firstDie randomize];
-    secondDie.dieNumber = [secondDie randomize];
-    thirdDie.dieNumber = [thirdDie randomize];
-    fourthDie.dieNumber = [fourthDie randomize];
-    fifthDie.dieNumber = [fifthDie randomize];
-    
-    NSLog(@"First die is:%@\n Second die is:%@\n Third die is:%@\n Fourth die is:%@\n Fifth die is:%@\n",firstDie.dieNumber,secondDie.dieNumber,thirdDie.dieNumber,fourthDie.dieNumber,fifthDie.dieNumber );
+    while (YES) {
+        
+        NSLog(@"Type 'roll' to roll the die");
+        char inputChars[255];
+        scanf("%s", inputChars);
+        NSString *inputString = [[NSString stringWithUTF8String:inputChars] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+        if ([inputString isEqualToString:@"roll"])
+        {
+            Dice *firstDie = [[Dice alloc] init];
+            Dice *secondDie = [[Dice alloc] init];
+            Dice *thirdDie = [[Dice alloc] init];
+            Dice *fourthDie = [[Dice alloc] init];
+            Dice *fifthDie = [[Dice alloc] init];
+            
+            firstDie.dieNumber = [firstDie randomize];
+            secondDie.dieNumber = [secondDie randomize];
+            thirdDie.dieNumber = [thirdDie randomize];
+            fourthDie.dieNumber = [fourthDie randomize];
+            fifthDie.dieNumber = [fifthDie randomize];
+            
+            NSLog(@"First die is:%@\n Second die is:%@\n Third die is:%@\n Fourth die is:%@\n Fifth die is:%@\n",firstDie.dieNumber,secondDie.dieNumber,thirdDie.dieNumber,fourthDie.dieNumber,fifthDie.dieNumber );
+        } else {
+            return 0;
+            
+        }
+    }
     
     return 0;
 }
