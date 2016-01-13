@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]) {
                   fifthDie.dieNumber,[fifthDie dieValue:fifthDie.dieNumber] );
             
             while (YES) {
-                NSString *holdResult = [input inputForPrompt:@"\nWhich die would you like to hold? Type 1, 2, 3, 4 or 5 then press enter. Type 'quit' to roll again."];
+                NSString *holdResult = [input inputForPrompt:@"\nTo hold a number type which die it is. \nType 'show' to show which numbers are currently held \nType 'unhold' to unhold certain die. \nType 'reset' to reset all your held die. \nType 'back' to roll again."];
                 
                 if ([holdResult isEqualToString:@"1"]) {
                     [hold holdDie:firstDie.dieNumber];
@@ -64,10 +64,42 @@ int main(int argc, const char * argv[]) {
                     [hold holdDie:fourthDie.dieNumber];
                 } else if ([holdResult isEqualToString:@"5"]) {
                     [hold holdDie:fifthDie.dieNumber];
-                } else if ([holdResult isEqualToString:@"quit"]) {
+                    
+                } else if ([holdResult isEqualToString:@"back"]) {
                     break;
+                    
+                } else if ([holdResult isEqualToString:@"show"]) {
+                    NSString *formatArray = [hold.numbersHeld componentsJoinedByString:@","];
+                    NSLog(@"\n[%@]", formatArray);
+                    
+                } else if ([holdResult isEqualToString:@"reset"]) {
+                    [hold resetDice];
+                    NSLog(@"\nArray has been reset");
+                    
+                } else if ([holdResult isEqualToString:@"unhold"]) {
+                    while (YES) {
+                        NSString *unholdResult = [input inputForPrompt:@"\nType the number would like to unhold? Type 'back' to go back."];
+                        
+                        if ([unholdResult isEqualToString:@"1"]) {
+                            [hold unHoldDie:[NSNumber numberWithInt:1]];
+                        } else if ([unholdResult isEqualToString:@"2"]) {
+                            [hold unHoldDie:[NSNumber numberWithInt:2]];
+                        } else if ([unholdResult isEqualToString:@"3"]){
+                            [hold unHoldDie:[NSNumber numberWithInt:3]];
+                        } else if ([unholdResult isEqualToString:@"4"]) {
+                            [hold unHoldDie:[NSNumber numberWithInt:4]];
+                        } else if ([unholdResult isEqualToString:@"5"]) {
+                            [hold unHoldDie:[NSNumber numberWithInt:5]];
+                        } else if ([unholdResult isEqualToString:@"6"]) {
+                            [hold unHoldDie:[NSNumber numberWithInt:6]];
+                        } else if ([unholdResult isEqualToString:@"back"]){
+                            break;
+                        } else {
+                            NSLog(@"\nSorry, invalid request");
+                        }
+                    }
                 } else {
-                    NSLog(@"\nSorry, nvalid request");
+                    NSLog(@"\nSorry, invalid request");
                 }
             }
         }

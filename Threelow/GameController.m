@@ -23,5 +23,14 @@
     [self.numbersHeld addObject:heldNumber];
 }
 
+-(void)unHoldDie:(NSNumber *)inputNumber {
+        if ([self.numbersHeld containsObject:inputNumber]) {
+            [self.numbersHeld removeObject:inputNumber];
+    }
+}
+
+-(void)resetDice {
+    [self.numbersHeld removeAllObjects];
+}
 
 @end

@@ -16,4 +16,8 @@
 
 -(void)holdDie:(NSNumber *)heldNumber;
 
+-(void)unHoldDie:(NSNumber *)dieNumber;
+
+-(void)resetDice;
+
 @end
