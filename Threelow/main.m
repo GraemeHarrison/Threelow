@@ -32,7 +32,6 @@ int main(int argc, const char * argv[]) {
         if ([promptResult isEqualToString:@"roll"])
         {
             firstDie.dieNumber = [firstDie randomize];
-            
             secondDie.dieNumber = [secondDie randomize];
             thirdDie.dieNumber = [thirdDie randomize];
             fourthDie.dieNumber = [fourthDie randomize];
@@ -44,12 +43,15 @@ int main(int argc, const char * argv[]) {
             [numbersRolled addObject:fourthDie.dieNumber];
             [numbersRolled addObject:fifthDie.dieNumber];
             
-            NSLog(@"\n Die 1) is:%@ %@\n Die 2) is:%@ %@\n Die 3) is:%@ %@\n Die 4) is:%@ %@\n Die 5) is:%@ %@\n",
+            NSString *formatArray = [hold.numbersHeld componentsJoinedByString:@","];
+            
+            NSLog(@"\n Die 1) is:%@ %@\n Die 2) is:%@ %@\n Die 3) is:%@ %@\n Die 4) is:%@ %@\n Die 5) is:%@ %@\n Your current held die are: %@\n Your current score is: %zd\n",
                   firstDie.dieNumber,[firstDie dieValue:firstDie.dieNumber],
                   secondDie.dieNumber,[secondDie dieValue:secondDie.dieNumber],
                   thirdDie.dieNumber,[thirdDie dieValue:thirdDie.dieNumber],
                   fourthDie.dieNumber,[fourthDie dieValue:fourthDie.dieNumber],
-                  fifthDie.dieNumber,[fifthDie dieValue:fifthDie.dieNumber] );
+                  fifthDie.dieNumber,[fifthDie dieValue:fifthDie.dieNumber],
+                  formatArray, [hold score]);
             
             while (YES) {
                 NSString *holdResult = [input inputForPrompt:@"\nTo hold a number type which die it is. \nType 'show' to show which numbers are currently held \nType 'unhold' to unhold certain die. \nType 'reset' to reset all your held die. \nType 'back' to roll again."];
@@ -70,11 +72,11 @@ int main(int argc, const char * argv[]) {
                     
                 } else if ([holdResult isEqualToString:@"show"]) {
                     NSString *formatArray = [hold.numbersHeld componentsJoinedByString:@","];
-                    NSLog(@"\n[%@]", formatArray);
+                    NSLog(@"\n[%@]\n", formatArray);
                     
                 } else if ([holdResult isEqualToString:@"reset"]) {
                     [hold resetDice];
-                    NSLog(@"\nArray has been reset");
+                    NSLog(@"\nArray has been reset\n");
                     
                 } else if ([holdResult isEqualToString:@"unhold"]) {
                     while (YES) {
@@ -95,11 +97,11 @@ int main(int argc, const char * argv[]) {
                         } else if ([unholdResult isEqualToString:@"back"]){
                             break;
                         } else {
-                            NSLog(@"\nSorry, invalid request");
+                            NSLog(@"\nSorry, invalid request\n");
                         }
                     }
                 } else {
-                    NSLog(@"\nSorry, invalid request");
+                    NSLog(@"\nSorry, invalid request\n");
                 }
             }
         }

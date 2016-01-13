@@ -20,4 +20,6 @@
 
 -(void)resetDice;
 
+-(NSInteger)score;
+
 @end

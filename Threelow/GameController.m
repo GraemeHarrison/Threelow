@@ -33,4 +33,12 @@
     [self.numbersHeld removeAllObjects];
 }
 
+-(NSInteger)score {
+    NSInteger total = 0;
+    for (NSNumber *number in self.numbersHeld)
+    {
+        total += [number intValue];
+    } return total;
+}
+
 @end
