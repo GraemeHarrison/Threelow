@@ -19,11 +19,14 @@
     return self;
 }
 
+-(NSString *)dieValue: (NSNumber *)dieNumber {
+    NSArray *dotsOnDie = [[NSArray alloc] initWithObjects:@"⚀", @"⚁", @"⚂", @"⚃", @"⚄", @"⚅", nil];
+    return [dotsOnDie objectAtIndex:dieNumber.integerValue-1];
+}
+
 -(NSNumber *)randomize {
     int random = arc4random_uniform((int)self.numbersOnDie.count);
     return [self.numbersOnDie objectAtIndex:random];
 }
-
-// 1)⚀ 2)⚁ 3)⚂ 4)⚃ 5)⚄ 6)⚅
 
 @end

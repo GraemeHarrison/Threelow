@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Dice.h"
 
 @interface GameController : NSObject
 
 @property (nonatomic, strong) NSMutableArray *numbersRolled;
-@property (nonatomic, strong) NSMutableDictionary *numbersHeld;
+@property (nonatomic, strong) NSMutableArray *numbersHeld;
+
+-(void)holdDie:(NSNumber *)heldNumber;
 
 @end

@@ -16,4 +16,6 @@
 
 -(NSNumber *)randomize;
 
+-(NSString *)dieValue: (NSNumber *)dieNumber;
+
 @end

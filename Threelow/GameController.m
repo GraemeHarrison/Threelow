@@ -10,4 +10,18 @@
 
 @implementation GameController
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _numbersHeld = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(void)holdDie:(NSNumber *)heldNumber {
+    [self.numbersHeld addObject:heldNumber];
+}
+
+
 @end
